@@ -1,0 +1,22 @@
+[package]
+name = "finance-dashboard-local"
+version = "0.1.0"
+description = "Dashboard local de finances personnelles"
+authors = ["local"]
+edition = "2021"
+
+[lib]
+name = "finance_dashboard_local_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-updater = "2"

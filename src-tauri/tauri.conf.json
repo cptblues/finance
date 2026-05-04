@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Finance Dashboard",
+  "version": "0.1.0",
+  "identifier": "local.finance.dashboard",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Finance Dashboard",
+        "width": 1440,
+        "height": 920,
+        "minWidth": 980,
+        "minHeight": 680
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["appimage", "deb", "rpm", "nsis", "dmg"],
+    "createUpdaterArtifacts": true,
+    "icon": ["icons/icon.png"],
+    "category": "Finance"
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDM4NTEzOTVCMjIzOTkyNTMKUldSVGtqa2lXemxST0krN0cxdHgwRTBOc2VWaG50cVNwNWRGd05sREFlV1NqVTF1MWM1dGRFOCsK",
+      "endpoints": [
+        "https://github.com/kpoulet/finance/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}
